@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.serviciotickets.controlador.ConfiguracionSistemaController">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Configuración del Sistema" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="150"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <!-- Nombre de la empresa -->
+        <Label text="Nombre de la Empresa:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="nombreEmpresaField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <!-- Logo -->
+        <Label text="Logo de la Empresa:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <ImageView fx:id="logoImageView" fitHeight="200" fitWidth="200" preserveRatio="true"
+                   GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <cursor>
+                <javafx.scene.Cursor fx:constant="HAND"/>
+            </cursor>
+        </ImageView>
+
+        <!-- Idioma -->
+        <Label text="Idioma Predeterminado:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <ComboBox fx:id="idiomaComboBox" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+        <!-- Zona Horaria -->
+        <Label text="Zona Horaria:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <ComboBox fx:id="zonaHorariaComboBox" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+        <!-- Tiempo de Vencimiento -->
+        <Label text="Tiempo de Vencimiento (días):" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <Spinner fx:id="tiempoVencimientoSpinner" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+        <!-- Niveles de Prioridad -->
+        <Label text="Niveles de Prioridad:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <ListView fx:id="nivelesPrioridadListView" prefHeight="150"/>
+            <HBox spacing="10">
+                <Button fx:id="agregarPrioridadButton" text="Agregar Nivel"/>
+                <Button fx:id="eliminarPrioridadButton" text="Eliminar Nivel"/>
+            </HBox>
+        </VBox>
+    </GridPane>
+
+    <Button fx:id="guardarButton" text="Guardar Configuración" 
+            style="-fx-font-size: 14px;" 
+            maxWidth="Infinity">
+        <VBox.margin>
+            <Insets top="20"/>
+        </VBox.margin>
+    </Button>
+
+</VBox> 

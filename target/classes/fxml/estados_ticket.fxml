@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<HBox spacing="20" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.serviciotickets.controlador.EstadosTicketController">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Panel izquierdo: Lista de estados -->
+    <VBox spacing="10" minWidth="200">
+        <Label text="Estados" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+        <ListView fx:id="estadosListView" VBox.vgrow="ALWAYS"/>
+        <Button fx:id="nuevoEstadoButton" text="Nuevo Estado" maxWidth="Infinity"/>
+    </VBox>
+
+    <!-- Panel central: Detalles del estado -->
+    <VBox spacing="10" HBox.hgrow="ALWAYS">
+        <Label text="Detalles del Estado" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+        
+        <GridPane hgap="10" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints hgrow="NEVER" minWidth="100"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+
+            <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="nombreEstadoField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+            <Label text="Descripción:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextArea fx:id="descripcionEstadoArea" prefRowCount="3" 
+                     wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+            <Label text="Estado Final:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <CheckBox fx:id="estadoFinalCheckBox" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        </GridPane>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button fx:id="guardarEstadoButton" text="Guardar"/>
+            <Button fx:id="eliminarEstadoButton" text="Eliminar"/>
+        </HBox>
+
+        <Separator/>
+
+        <Label text="Estados Siguientes" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+        
+        <HBox spacing="10" VBox.vgrow="ALWAYS">
+            <!-- Estados disponibles -->
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Disponibles"/>
+                <ListView fx:id="estadosSiguientesDisponiblesListView" VBox.vgrow="ALWAYS"/>
+            </VBox>
+
+            <!-- Botones de asignación -->
+            <VBox spacing="5" alignment="CENTER">
+                <Button fx:id="agregarEstadoSiguienteButton" text="&gt;&gt;"/>
+                <Button fx:id="quitarEstadoSiguienteButton" text="&lt;&lt;"/>
+            </VBox>
+
+            <!-- Estados asignados -->
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Asignados"/>
+                <ListView fx:id="estadosSiguientesAsignadosListView" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </HBox>
+    </VBox>
+
+</HBox> 
