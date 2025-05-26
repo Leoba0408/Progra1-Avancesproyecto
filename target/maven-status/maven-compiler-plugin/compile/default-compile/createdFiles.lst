@@ -1,4 +1,5 @@
 com\serviciotickets\controlador\RolesPermisosController$4.class
+com\serviciotickets\servicio\NotificacionService.class
 com\serviciotickets\controlador\EstadosTicketController.class
 com\serviciotickets\controlador\EstadosTicketController$1.class
 com\serviciotickets\servicio\SesionServicio.class
@@ -21,6 +22,7 @@ com\serviciotickets\controlador\RolesPermisosController$5.class
 com\serviciotickets\modelo\Administrador.class
 com\serviciotickets\persistencia\ConexionDB.class
 com\serviciotickets\modelo\EstadoTicket.class
+com\serviciotickets\config\InternacionalizacionConfig.class
 com\serviciotickets\modelo\Persona.class
 com\serviciotickets\controlador\NotasTicketController$1.class
 com\serviciotickets\modelo\Rol.class
@@ -30,5 +32,6 @@ com\serviciotickets\controlador\RolesPermisosController$3.class
 com\serviciotickets\modelo\NotaTicket.class
 com\serviciotickets\modelo\Permiso.class
 com\serviciotickets\controlador\FlujosTrabajoController$2.class
+com\serviciotickets\servicio\ArchivoAdjuntoService.class
 com\serviciotickets\controlador\FlujosTrabajoController.class
 com\serviciotickets\modelo\Usuario.class

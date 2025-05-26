@@ -2,6 +2,7 @@ C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets
 C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\modelo\Tecnico.java
 C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\controlador\FlujosTrabajoController.java
 C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\modelo\ConfiguracionSistema.java
+C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\servicio\NotificacionService.java
 C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\controlador\NotasTicketController.java
 C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\controlador\EstadosTicketController.java
 C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\modelo\EstadoTicket.java
@@ -13,7 +14,9 @@ C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets
 C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\modelo\Ticket.java
 C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\persistencia\ConexionDB.java
 C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\servicio\SesionServicio.java
+C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\servicio\ArchivoAdjuntoService.java
 C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\Main.java
+C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\config\InternacionalizacionConfig.java
 C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\modelo\Persona.java
 C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\controlador\ConfiguracionSistemaController.java
 C:\Users\Leobardo Galvez\Desktop\Proyecto_Java\src\main\java\com\serviciotickets\modelo\Departamento.java

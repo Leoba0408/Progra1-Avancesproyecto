@@ -2,16 +2,16 @@ package com.serviciotickets.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.FetchType;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 @Table(name = "usuarios")
@@ -32,10 +32,10 @@ public class Usuario extends Persona {
     @Column(name = "activo")
     private boolean activo = true;
 
-    @Column(name = "fecha_creacion")
+    @Column(name = "fecha_creacion", nullable = false)
     private LocalDateTime fechaCreacion;
 
-    @Column(name = "ultima_modificacion")
+    @Column(name = "ultima_modificacion", nullable = false)
     private LocalDateTime ultimaModificacion;
 
     @OneToMany(mappedBy = "solicitante")

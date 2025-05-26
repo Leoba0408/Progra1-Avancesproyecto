@@ -8,9 +8,11 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import com.serviciotickets.modelo.*;
 import com.serviciotickets.persistencia.ConexionDB;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.NoResultException;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
 
@@ -335,14 +337,8 @@ public class Main extends Application {
                 // Buscar o crear el rol por defecto
                 Rol rolUsuario = obtenerRolPorDefecto();
                 
-                // Crear el usuario
-                Usuario usuario = new Usuario();
-                usuario.setNombre(nombre);
-                usuario.setApellido(apellido);
-                usuario.setEmail(email);
-                usuario.setNombreUsuario(nombreUsuario);
-                usuario.setPassword("password123"); // Contraseña por defecto más segura
-                usuario.setTelefono("Sin teléfono");
+                // Crear el usuario usando el constructor apropiado
+                Usuario usuario = new Usuario(nombre, apellido, email, nombreUsuario, "Usuario123!");
                 usuario.setRol(rolUsuario);
                 usuario.setActivo(true);
                 
@@ -363,7 +359,7 @@ public class Main extends Application {
                 if (transaction != null && transaction.isActive()) {
                     transaction.rollback();
                 }
-                throw e; // Re-lanzar la excepción para ser manejada en el catch exterior
+                throw e;
             }
         } catch (Exception e) {
             mostrarError("Error al crear usuario", e.getMessage());
@@ -400,7 +396,34 @@ public class Main extends Application {
                 "SELECT r FROM Rol r WHERE r.nombre = 'USUARIO'", Rol.class)
                 .getSingleResult();
         } catch (NoResultException e) {
+            // Crear permisos básicos si no existen
+            List<Permiso> permisosBasicos = new ArrayList<>();
+            String[] permisosNecesarios = {
+                "CREAR_TICKET",
+                "VER_TICKET",
+                "AGREGAR_NOTA_TICKET"
+            };
+            
+            for (String nombrePermiso : permisosNecesarios) {
+                try {
+                    Permiso permiso = entityManager.createQuery(
+                        "SELECT p FROM Permiso p WHERE p.nombre = :nombre", Permiso.class)
+                        .setParameter("nombre", nombrePermiso)
+                        .getSingleResult();
+                    permisosBasicos.add(permiso);
+                } catch (NoResultException nre) {
+                    Permiso nuevoPermiso = new Permiso(nombrePermiso, "Permiso básico para " + nombrePermiso.toLowerCase());
+                    entityManager.persist(nuevoPermiso);
+                    permisosBasicos.add(nuevoPermiso);
+                }
+            }
+            
+            // Crear el rol con los permisos básicos
             Rol rolUsuario = new Rol("USUARIO", "Rol básico para usuarios del sistema");
+            for (Permiso permiso : permisosBasicos) {
+                rolUsuario.agregarPermiso(permiso);
+            }
+            
             entityManager.persist(rolUsuario);
             entityManager.flush();
             return rolUsuario;

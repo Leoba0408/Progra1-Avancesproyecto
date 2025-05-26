@@ -1,6 +1,6 @@
 package com.serviciotickets.modelo;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "permisos")

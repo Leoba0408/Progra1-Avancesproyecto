@@ -1,7 +1,7 @@
 package com.serviciotickets.persistencia;
 
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,10 +12,10 @@ public class ConexionDB {
         if (entityManagerFactory == null) {
             try {
                 Map<String, String> properties = new HashMap<>();
-                properties.put("jakarta.persistence.jdbc.driver", "org.postgresql.Driver");
-                properties.put("jakarta.persistence.jdbc.url", "jdbc:postgresql://localhost:5432/sistema_tickets");
-                properties.put("jakarta.persistence.jdbc.user", "postgres");
-                properties.put("jakarta.persistence.jdbc.password", "1234");
+                properties.put("javax.persistence.jdbc.driver", "org.postgresql.Driver");
+                properties.put("javax.persistence.jdbc.url", "jdbc:postgresql://localhost:5432/sistema_tickets");
+                properties.put("javax.persistence.jdbc.user", "postgres");
+                properties.put("javax.persistence.jdbc.password", "1234");
                 properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
                 properties.put("hibernate.show_sql", "true");
                 properties.put("hibernate.hbm2ddl.auto", "update");

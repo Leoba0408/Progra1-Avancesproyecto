@@ -3,7 +3,9 @@ package com.serviciotickets.modelo;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.Queue;
-import jakarta.persistence.*;
+import java.util.List;
+import java.util.ArrayList;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "departamentos")
@@ -19,6 +21,9 @@ public class Departamento implements Serializable {
 
     @Column(nullable = false, length = 1000)
     private String descripcion;
+
+    @OneToMany(mappedBy = "departamento")
+    private List<Tecnico> tecnicos = new ArrayList<>();
 
     @Transient
     private Queue<Ticket> colaTickets;
@@ -76,6 +81,14 @@ public class Departamento implements Serializable {
 
     public Queue<Ticket> getColaTickets() {
         return colaTickets;
+    }
+
+    public List<Tecnico> getTecnicos() {
+        return tecnicos;
+    }
+
+    public void setTecnicos(List<Tecnico> tecnicos) {
+        this.tecnicos = tecnicos;
     }
 
     @Override

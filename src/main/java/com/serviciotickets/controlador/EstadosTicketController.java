@@ -2,8 +2,8 @@ package com.serviciotickets.controlador;
 
 import com.serviciotickets.modelo.EstadoTicket;
 import com.serviciotickets.persistencia.ConexionDB;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.collections.FXCollections;

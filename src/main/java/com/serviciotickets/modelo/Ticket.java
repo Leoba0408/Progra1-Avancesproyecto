@@ -3,7 +3,7 @@ package com.serviciotickets.modelo;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Stack;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.util.*;
 
 @Entity

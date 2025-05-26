@@ -3,7 +3,7 @@ package com.serviciotickets.controlador;
 import com.serviciotickets.modelo.Rol;
 import com.serviciotickets.modelo.Permiso;
 import com.serviciotickets.persistencia.ConexionDB;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
