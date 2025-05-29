@@ -6,7 +6,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "tecnicos")
-public class Tecnico extends Persona {
+@PrimaryKeyJoinColumn(name = "id")
+@DiscriminatorValue("TECNICO")
+public class Tecnico extends Usuario {
     private static final long serialVersionUID = 1L;
     
     @OneToMany(mappedBy = "tecnicoAsignado")
@@ -18,6 +20,9 @@ public class Tecnico extends Persona {
 
     @Column(name = "disponible")
     private boolean disponible;
+
+    @Column(name = "especialidad")
+    private String especialidad;
 
     public Tecnico() {
         super();
@@ -74,6 +79,14 @@ public class Tecnico extends Persona {
 
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
     }
 
     @Override

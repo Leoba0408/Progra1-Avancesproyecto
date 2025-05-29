@@ -32,10 +32,10 @@ public class Usuario extends Persona {
     @Column(name = "activo")
     private boolean activo = true;
 
-    @Column(name = "fecha_creacion", nullable = false)
+    @Column(name = "fecha_creacion")
     private LocalDateTime fechaCreacion;
 
-    @Column(name = "ultima_modificacion", nullable = false)
+    @Column(name = "ultima_modificacion")
     private LocalDateTime ultimaModificacion;
 
     @OneToMany(mappedBy = "solicitante")
@@ -101,8 +101,16 @@ public class Usuario extends Persona {
         return fechaCreacion;
     }
 
+    public void setFechaCreacion(LocalDateTime fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
     public LocalDateTime getUltimaModificacion() {
         return ultimaModificacion;
+    }
+
+    public void setUltimaModificacion(LocalDateTime ultimaModificacion) {
+        this.ultimaModificacion = ultimaModificacion;
     }
 
     public List<Ticket> getTickets() {

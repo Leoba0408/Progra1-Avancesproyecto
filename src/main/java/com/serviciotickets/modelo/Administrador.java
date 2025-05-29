@@ -2,10 +2,31 @@ package com.serviciotickets.modelo;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Column;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 
-public class Administrador extends Persona {
+@Entity
+@Table(name = "administradores")
+@PrimaryKeyJoinColumn(name = "id")
+@DiscriminatorValue("ADMINISTRADOR")
+public class Administrador extends Usuario {
     private static final long serialVersionUID = 1L;
     
+    @Column(name = "cargo")
+    private String cargo;
+    
+    @ManyToMany
+    @JoinTable(
+        name = "administrador_departamento",
+        joinColumns = @JoinColumn(name = "administrador_id"),
+        inverseJoinColumns = @JoinColumn(name = "departamento_id")
+    )
     private List<Departamento> departamentosGestionados;
 
     public Administrador() {
@@ -38,5 +59,13 @@ public class Administrador extends Persona {
 
     public void setDepartamentosGestionados(List<Departamento> departamentosGestionados) {
         this.departamentosGestionados = departamentosGestionados;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 } 

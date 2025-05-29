@@ -34,4 +34,23 @@ public class SesionServicio {
     public void cerrarSesion() {
         usuarioActual = null;
     }
+
+    public boolean tieneRolAdministrador() {
+        if (usuarioActual == null) return false;
+        return usuarioActual instanceof com.serviciotickets.modelo.Administrador ||
+               (usuarioActual.getRol() != null && 
+                "ADMINISTRADOR".equals(usuarioActual.getRol().getNombre()));
+    }
+    
+    public boolean tieneRolTecnico() {
+        if (usuarioActual == null) return false;
+        return usuarioActual instanceof com.serviciotickets.modelo.Tecnico ||
+               (usuarioActual.getRol() != null && 
+                "TECNICO".equals(usuarioActual.getRol().getNombre())) ||
+               tieneRolAdministrador(); // Los administradores también tienen permisos de técnicos
+    }
+    
+    public boolean tieneRolUsuario() {
+        return isUsuarioAutenticado(); // Cualquier usuario autenticado tiene rol básico
+    }
 } 

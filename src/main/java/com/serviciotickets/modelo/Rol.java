@@ -2,6 +2,7 @@ package com.serviciotickets.modelo;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -68,6 +69,14 @@ public class Rol {
 
     public void setPermisos(Set<Permiso> permisos) {
         this.permisos = permisos;
+    }
+
+    public void setPermisos(List<Permiso> permisos) {
+        if (permisos != null) {
+            this.permisos = new HashSet<>(permisos);
+        } else {
+            this.permisos = null;
+        }
     }
 
     // Métodos de utilidad

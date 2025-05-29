@@ -22,8 +22,9 @@ public class NotaTicket {
     @Column(name = "fecha_creacion")
     private LocalDateTime fechaCreacion;
 
-    @Column(name = "creado_por")
-    private String creadoPor;
+    @ManyToOne
+    @JoinColumn(name = "creado_por_id")
+    private Persona creadoPor;
 
     @ElementCollection
     @CollectionTable(name = "adjuntos_nota",
@@ -37,7 +38,7 @@ public class NotaTicket {
     }
 
     // Constructor con parámetros principales
-    public NotaTicket(String contenido, Ticket ticket, String creadoPor) {
+    public NotaTicket(String contenido, Ticket ticket, Persona creadoPor) {
         this();
         this.contenido = contenido;
         this.ticket = ticket;
@@ -80,11 +81,11 @@ public class NotaTicket {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public String getCreadoPor() {
+    public Persona getCreadoPor() {
         return creadoPor;
     }
 
-    public void setCreadoPor(String creadoPor) {
+    public void setCreadoPor(Persona creadoPor) {
         this.creadoPor = creadoPor;
     }
 

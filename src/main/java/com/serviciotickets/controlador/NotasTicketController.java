@@ -169,7 +169,7 @@ public class NotasTicketController {
             if (notaSeleccionada == null) {
                 notaSeleccionada = new NotaTicket();
                 notaSeleccionada.setTicket(ticketActual);
-                notaSeleccionada.setCreadoPor(SesionServicio.getInstancia().getNombreUsuarioActual());
+                notaSeleccionada.setCreadoPor(SesionServicio.getInstancia().getUsuarioActual());
                 notaSeleccionada.setFechaCreacion(LocalDateTime.now());
             }
             
